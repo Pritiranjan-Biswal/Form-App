@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [firstName, setFirstName]=useState('');
+  const [lastName, setLastName]=useState('')
+
+  console.log(firstName);
+  console.log(lastName);
+  
+  
+  function changefirstNameHandler(event) {
+    // console.log("Printing first name");
+    // console.log(event.target.value);
+    setFirstName(event.target.value);
+    
+  }
+  function changelastNameHandler (event) {
+    // console.log("Printing last name");
+    // console.log(event.target.value);
+    setLastName(event.target.value)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <form>
+        <input type='text'
+        placeholder='first-name'
+        onChange={changefirstNameHandler}/>
+        <br/><br/>
+        <input type='text'
+        placeholder='last-name'
+        onChange={changelastNameHandler}/>
+
+
+
+        
+      </form>
     </div>
   );
 }
